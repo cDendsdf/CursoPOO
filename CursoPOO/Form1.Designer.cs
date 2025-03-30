@@ -31,7 +31,6 @@
             txtNombre = new TextBox();
             label1 = new Label();
             txtDireccion = new Label();
-            textBox1 = new TextBox();
             label2 = new Label();
             txtTelefono = new TextBox();
             label3 = new Label();
@@ -42,6 +41,7 @@
             dtpFechaNac = new DateTimePicker();
             btnSalir = new Button();
             btnSave = new Button();
+            txtDirecc = new TextBox();
             SuspendLayout();
             // 
             // txtNombre
@@ -73,16 +73,6 @@
             txtDireccion.Size = new Size(95, 22);
             txtDireccion.TabIndex = 3;
             txtDireccion.Text = "Direccion:";
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
-            textBox1.ForeColor = Color.RoyalBlue;
-            textBox1.Location = new Point(654, 10);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(236, 30);
-            textBox1.TabIndex = 2;
             // 
             // label2
             // 
@@ -194,11 +184,19 @@
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
+            // txtDirecc
+            // 
+            txtDirecc.Location = new Point(646, 11);
+            txtDirecc.Name = "txtDirecc";
+            txtDirecc.Size = new Size(125, 27);
+            txtDirecc.TabIndex = 15;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(947, 550);
+            Controls.Add(txtDirecc);
             Controls.Add(btnSave);
             Controls.Add(btnSalir);
             Controls.Add(dtpFechaNac);
@@ -210,7 +208,6 @@
             Controls.Add(label3);
             Controls.Add(txtCedula);
             Controls.Add(txtDireccion);
-            Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(txtNombre);
             Name = "Form1";
@@ -225,7 +222,6 @@
         private TextBox txtNombre;
         private Label label1;
         private Label txtDireccion;
-        private TextBox textBox1;
         private Label label2;
         private TextBox txtTelefono;
         private Label label3;
@@ -236,5 +232,6 @@
         private DateTimePicker dtpFechaNac;
         private Button btnSalir;
         private Button btnSave;
+        private TextBox txtDirecc;
     }
 }

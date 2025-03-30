@@ -1,4 +1,6 @@
+using Microsoft.Identity.Client;
 using SysDataAccess.Entidades;
+using SysServises;
 
 namespace CursoPOO
 {
@@ -23,7 +25,10 @@ namespace CursoPOO
             {
 
                 AsignarDatos();
-                MessageBox.Show(estudiante.MostrarInfo());
+                SaveData(estudiante);
+                //MessageBox.Show(estudiante.MostrarInfo());
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -33,13 +38,27 @@ namespace CursoPOO
 
         public void AsignarDatos()
         {
+            estudiante = new Estudiante();
+
             estudiante.NombreCompleto = txtNombre.Text;
-            estudiante.Direccion = txtDireccion.Text;
+            estudiante.Direccion = txtDirecc.Text;
             estudiante.Dni = txtCedula.Text;
             estudiante.Telefono = txtTelefono.Text;
             estudiante.FechaNacimiento = dtpFechaNac.Value;
 
             txtEdad.Text = estudiante.Edad.ToString();
+        }
+
+
+        private void SaveData(Estudiante estudiante)
+        {
+            EstuentServices estuentServices = new EstuentServices();
+
+            estudiante.Direccion = txtDirecc.Text;
+            if(estuentServices.InsertEstuent(estudiante) == true)
+            {
+                MessageBox.Show("se ha registrado el estudiante en la base de datos","Conectando con Sql",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)

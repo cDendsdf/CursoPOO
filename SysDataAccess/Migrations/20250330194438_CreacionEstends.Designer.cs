@@ -12,8 +12,8 @@ using SysDataAccess;
 namespace SysDataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250329222949_inicial")]
-    partial class inicial
+    [Migration("20250330194438_CreacionEstends")]
+    partial class CreacionEstends
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -14,6 +14,8 @@ namespace SysDataAccess.Entidades
         [Key]
         public int Id { get; set; }
 
+
+
         private DateTime _fechaNacimiento;
 
         public int Edad { get {
@@ -30,6 +32,8 @@ namespace SysDataAccess.Entidades
 
         public string NombreCompleto { get; set; }
         public string Dni { get; set; }
+
+        
         public DateTime FechaNacimiento { get { return _fechaNacimiento; }set
             {
                 if (value > DateTime.Today)
@@ -42,14 +46,14 @@ namespace SysDataAccess.Entidades
         }
 
         public string Telefono { get; set; }
-        public string Direccion { get; set; }
+        public string Direccion { get; set; } 
 
 
         
-        public virtual string MostrarInfo()
-        {
-            return $"Datos del estudiante: {NombreCompleto} \n Dirección: {Direccion}\n Edad: {Edad}";
-        }
+        //public virtual string MostrarInfo()
+        //{
+        //    return $"Datos del estudiante: {NombreCompleto} \n Dirección: {Direccion}\n Edad: {Edad}";
+        //}
 
     }
 }
