@@ -14,6 +14,8 @@ namespace CursoPOO
 {
     public partial class FrmEstudiantesView : Form
     {
+
+        EstuentServices estuentServices = new EstuentServices();
         public FrmEstudiantesView()
         {
             InitializeComponent();
@@ -38,11 +40,7 @@ namespace CursoPOO
             using (Form1 frmdatos = new Form1())
             {
                 frmdatos.ShowDialog();
-                if (frmdatos.DialogResult == DialogResult.OK)
-                {
-                    LoadData();
-
-                }
+                if (frmdatos.DialogResult == DialogResult.OK)  LoadData();
             }
         }
 
@@ -50,17 +48,13 @@ namespace CursoPOO
         {
             Estudiante itemSeleccionado = bsData.Current as Estudiante;
             if (MessageBox.Show($"Desea eliminar al estudiante {itemSeleccionado.NombreCompleto}","Esta seguro de elimanar",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                EstuentServices estuentServices = new EstuentServices();
-                if (estuentServices.DeleteItem(itemSeleccionado) == true)
+            {                
+                if (estuentServices.DeleteItem(itemSeleccionado))
                 {
                     MessageBox.Show("Estudiante eliminado correctamente","Conexion con sql exitosa",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     LoadData();
                 }
-                else
-                {
-                    MessageBox.Show("Lo sentimos no se pudo eliminar el registro contacte con informatica");
-                }
+                else  MessageBox.Show("Lo sentimos no se pudo eliminar el registro contacte con informatica");                
             }
         }
     }
